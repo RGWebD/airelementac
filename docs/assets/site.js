@@ -33,7 +33,7 @@ const pill=$('.demo');if(pill){try{if(sessionStorage.getItem('ae-pill'))pill.cla
 // reveals + counters
 function count(el){const to=+el.dataset.count,dec=+(el.dataset.dec||0);if(RM){el.textContent=to.toFixed(dec);return}
   const t0=performance.now(),d=1600;const f=t=>{const p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(f);else el.textContent=to.toFixed(dec)};requestAnimationFrame(f)}
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;el.classList.add('in');io.unobserve(el);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;const grp=el.parentElement&&el.parentElement.matches('.why-g,.svc-g')?[...el.parentElement.children]:[el];grp.forEach(x=>{x.classList.add('in');io.unobserve(x);$$('.lv',x).forEach(l=>l.classList.add('in'))});
   $$('[data-count]',el).forEach(count)}),{threshold:.15,rootMargin:'0px 0px -5% 0px'});
 $$('.rv,.split,.lv').forEach(el=>io.observe(el));
 // timeline

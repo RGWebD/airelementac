@@ -15,7 +15,7 @@ async def run():
                     page = await ctx.new_page(); errs = []
                     page.on('console', lambda m: errs.append(m.text) if m.type == 'error' else None)
                     page.on('pageerror', lambda e: errs.append(str(e)))
-                    await page.goto(BASE + pg, wait_until='load')
+                    await page.goto(BASE + pg, wait_until='load' if 'contact' not in pg else 'domcontentloaded', timeout=60000)
                     await page.wait_for_timeout(2400)
                     # scroll through to trigger reveals
                     H = await page.evaluate('document.documentElement.scrollHeight')

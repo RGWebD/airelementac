@@ -158,7 +158,7 @@ def head(path,title,desc,schemas,home=False):
 <script>try{{var m=localStorage.getItem('ae-mode');if(m)document.documentElement.dataset.mode=m}}catch(e){{}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800;900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-{pre}<link rel="stylesheet" href="assets/site.css?v=3">{ld}
+{pre}<link rel="stylesheet" href="assets/site.css?v=4">{ld}
 </head><body class="pg-{path[:-5]}">
 <a class="skip" href="#main">Skip to content</a><div class="prog" aria-hidden="true"></div>
 '''
@@ -190,7 +190,7 @@ def footer():
 <div class="mbar"><a href="{D['tel']}">{ic('phone')}Call</a><a class="mb-b" href="{BOOK}" target="_blank" rel="noopener">{ic('cal')}Book online</a></div>
 <div class="demo" role="note"><span>Design preview by <b>RGWebD</b></span><button type="button" aria-label="Dismiss design preview note">×</button></div>
 <div class="lbx" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="lbx-x" type="button" aria-label="Close">×</button><button class="lbx-p" type="button" aria-label="Previous photo">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lbx-n" type="button" aria-label="Next photo">›</button></div>
-<script src="assets/site.js?v=3" defer></script>
+<script src="assets/site.js?v=4" defer></script>
 </body></html>'''
 def phero(path,eyebrow,h1,lede,image,alt,extra=''):
     return f'''<section class="phero"><div class="phero-bg" aria-hidden="true">{flow_svg()}</div><div class="wrap phero-in">
