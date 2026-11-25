@@ -43,7 +43,7 @@ SERVICES=[
    pts=['Complete A/C system replacement','Heat pump & condenser installs','Options explained, no pressure','Install done right, cleaned up after'],
    q=('They quoted me a reasonable price for the unit including the labor and were able to get it installed the next day.','Austin Williamson'),img='twin-condensers',alt='Two new matching condensers installed on pads along the side of a townhome'),
  dict(id='heating',name='Heating & Air Handlers',ico='flame',blurb='Heating installs and air handlers in closets, garages and attics.',
-   body='Jacksonville winters are short, but a cold snap still finds a weak system. Air Element installs heating systems and air handlers — sealed, strapped and plumbed neatly in closets, garages and attics.',
+   body='Jacksonville winters are short, but a cold snap still finds a weak system. Air Element installs heating systems and air handlers — sealed and plumbed neatly in closets, garages and attics.',
    pts=['Heating system installation','Air handler replacement','Closet, garage & attic setups','Condensate lines plumbed clean'],
    q=('Did not try to oversale, or pressure us into more expensive units or extra products.','Lieth Quffa'),img='air-handler-ductboard',alt='Newly installed air handler with sealed duct-board plenums in a utility room'),
  dict(id='ductwork',name='Duct Work',ico='duct',blurb='New runs, replacements and duct systems — residential to commercial.',
@@ -56,7 +56,7 @@ SERVICES=[
    q=('We needed a mini-split system installed in our recently enclosed patio/spa room.','Judy Batson'),img='minisplit-porch',alt='White ductless mini-split head mounted high on a porch wall above a window'),
  dict(id='commercial',name='Commercial & Rooftop',ico='roof',blurb='Residential and commercial — packaged and rooftop units too.',
    body='Their business card says it plainly: residential and commercial. That includes packaged units, rooftop equipment and commercial condensers serviced up on the roof or out back.',
-   pts=['Rooftop unit service','Packaged units','Commercial condensers','Commercial A/C contractors (BBB category)'],
+   pts=['Rooftop unit service','Packaged units','Commercial condensers','Residential & commercial'],
    q=('Very professional people! Their service and prices are excellent!','Dany Turk'),img='commercial-condenser',alt='Commercial condenser on a pad behind yellow safety bollards beside a block wall'),
 ]
 GALLERY=[ # (img, tags, alt)
@@ -227,7 +227,7 @@ def page_home():
 </div>
 <div class="h-vis">
 <figure class="h-ph"><picture><source media="(max-width:860px)" srcset="img/hero-rooftop-m.webp" width="900" height="1120"><img src="img/hero-rooftop.webp" width="1100" height="1956" alt="Air Element technician beside an opened rooftop HVAC unit on a commercial roof" fetchpriority="high"></picture><i class="h-tint" aria-hidden="true"></i>
-<span class="pin pin-a" style="--x:47%;--y:56%"><b></b><em>Rooftop unit · opened for service</em></span></figure>
+<span class="pin pin-a" style="--x:8%;--y:50%"><b></b><em>Rooftop unit · opened for service</em></span></figure>
 <div class="dial" role="group" aria-label="Cool or heat mode — re-tints the page">
 <svg viewBox="0 0 200 200" aria-hidden="true"><circle class="d-tr" cx="100" cy="100" r="82" pathLength="100"/><circle class="d-v" cx="100" cy="100" r="82" pathLength="100"/>{''.join(f'<line class="d-tk" x1="100" y1="10" x2="100" y2="{17 if i%5 else 22}" transform="rotate({-135+i*9} 100 100)"/>' for i in range(31))}</svg>
 <div class="d-rd"><span class="d-mode">Cooling</span><span class="d-t"><span class="d-n">72</span>°</span><span class="d-s">Set&nbsp;·&nbsp;Jacksonville</span></div>
@@ -242,7 +242,7 @@ def page_home():
          ('fan','Options, explained','You see the choices and the price — then decide.','He was very transparent about the different options available and took the time to explain everything clearly without any pressure.','Michael Toenies II'),
          ('flame','Clean, careful installs','Done right, walked through, cleaned up after.','He made sure the installation was done right, took the time to teach me about the new unit, and cleaned up thoroughly afterward.','Michael Toenies II')]
     wc=''.join(f'<article class="why-c tilt rv" style="--i:{i}"><span class="why-i">{ic(a)}</span><h3>{b}</h3><p>{c}</p><blockquote>“{E(q)}”<cite>— {E(n)}</cite></blockquote></article>' for i,(a,b,c,q,n) in enumerate(why))
-    s+=f'''<section class="sec why"><div class="wrap"><div class="sh rv"><p class="eyebrow">Why Jacksonville calls Air Element</p><h2>Family-owned. <em>Straight-talking.</em> Fast.</h2><p>Every reason below comes straight from their customers’ Google reviews.</p></div><div class="why-g">{wc}</div></div></section>'''
+    s+=f'''<section class="sec why"><div class="wrap"><div class="sh rv"><p class="eyebrow">Why Jacksonville calls Air Element</p><h2>Family-owned. <em>Straight-talking.</em> Fast.</h2><p>Every reason below comes straight from their customers’ Google reviews.</p></div><div class="why-g">{wc}</div><p class="swipe-hint" aria-hidden="true">Swipe for more →</p></div></section>'''
     # gauges
     s+=f'''<section class="sec gauges"><div class="g-bg" aria-hidden="true"></div><div class="wrap"><div class="sh rv"><p class="eyebrow">The readout</p><h2>Numbers that <em>hold steady.</em></h2></div><div class="g-g">
 {gauge('5.0',1,'Google rating','Average across 82 reviews',5,'ice')}{gauge(82,0,'Google reviews','And counting',100,'ember')}{gauge(7,0,'Days a week','Open every day',7,'ice')}{gauge(14,0,'Hours a day','8 AM – 10 PM',24,'ember')}{gauge(4,0,'Counties served','Duval · Clay · St. Johns · Nassau',4,'ice')}
@@ -251,7 +251,7 @@ def page_home():
     feat=[SERVICES[0],SERVICES[1],SERVICES[3],SERVICES[4]]
     alt_imgs={'ac-repair':('trane-condenser','New Trane condenser on a fresh pad beside a gray-sided home'),'ac-installation':('heat-pump-tall','Tall two-fan outdoor unit set on a concrete pad'),'ductwork':('attic-flex','Insulated flex duct running through an attic between rafters'),'mini-splits':('minisplit-patio','Mini-split head above sliding glass doors in a screened patio room')}
     sc=''.join(f'<a class="svc-c rv" style="--i:{i}" href="services.html#{x["id"]}">{louver(img(alt_imgs[x["id"]][0],alt_imgs[x["id"]][1]))}<div class="svc-b"><span class="svc-i">{ic(x["ico"])}</span><h3>{x["name"]}</h3><p>{x["blurb"]}</p><span class="more">Learn more {ic("arrow")}</span></div></a>' for i,x in enumerate(feat))
-    s+=f'''<section class="sec svc"><div class="wrap"><div class="sh sh-row rv"><div><p class="eyebrow">What they do</p><h2>Cooling, heating &amp; <em>everything the air moves through.</em></h2></div><a class="btn ghost" href="services.html">All services {ic('arrow')}</a></div><div class="svc-g">{sc}</div></div></section>'''
+    s+=f'''<section class="sec svc"><div class="wrap"><div class="sh sh-row rv"><div><p class="eyebrow">What they do</p><h2>Cooling, heating &amp; <em>everything the air moves through.</em></h2></div><a class="btn ghost" href="services.html">All services {ic('arrow')}</a></div><div class="svc-g">{sc}</div><p class="swipe-hint" aria-hidden="true">Swipe for more →</p></div></section>'''
     # reviews carousel
     pick=[REVIEWS[i] for i in (2,3,5,8,9,6)]
     sl=''.join(f'<div class="rc-s" role="group" aria-roledescription="slide" aria-label="{i+1} of {len(pick)}">{rcard(r,False)}</div>' for i,r in enumerate(pick))
@@ -276,7 +276,7 @@ def page_services():
 <div class="srv-ph rv" data-r="{'right' if i%2 else 'left'}">{louver(img(x['img'],x['alt']))}<span class="srv-no">0{i+1}</span></div>
 <div class="srv-tx rv"><span class="svc-i">{ic(x['ico'])}</span><h2>{x['name']}</h2><p class="lede">{x['body']}</p><ul class="ticks">{pts}</ul>
 <blockquote class="pull">“{E(x['q'][0])}”<cite>— {E(x['q'][1])}, Google review</cite></blockquote>
-<div class="ctas"><a class="btn mag" href="{BOOK}" target="_blank" rel="noopener">{ic('cal')}Book {x['name'].split(' &')[0]}</a><a class="btn ghost" href="{D['tel']}">{ic('phone')}{D['phone']}</a></div></div></div></section>'''
+<div class="ctas"><a class="btn mag" href="{BOOK}" target="_blank" rel="noopener">{ic('cal')}Book online</a><a class="btn ghost" href="{D['tel']}">{ic('phone')}{D['phone']}</a></div></div></div></section>'''
     # blueprint compare
     s+=f'''<section class="sec bp"><div class="wrap bp-g"><div class="bp-tx rv"><p class="eyebrow">Drag to compare</p><h2>Drawn like a plan. <em>Built like one.</em></h2><p>One real Air Element garage install, shown two ways: a line-drawn blueprint traced from the photo, and the finished equipment — air handler, sealed supply and return plenums, and a neatly run condensate line.</p><p class="note">Same photo, two views — not a before/after.</p></div>
 <div class="ba rv" style="--p:50%"><img class="ba-a" src="img/bp-real.webp" width="900" height="1180" alt="Finished air handler install in a garage with sealed plenums and condensate line" loading="lazy"><div class="ba-b">{img('bp-lines','Blueprint-style line drawing traced from the same garage install')}</div><span class="ba-h" aria-hidden="true"><b>{ic('arrow')}</b></span><span class="ba-lb ba-l1">Blueprint</span><span class="ba-lb ba-l2">Installed</span><input type="range" min="0" max="100" value="50" aria-label="Compare blueprint and installed photo"></div></div></section>'''
@@ -316,7 +316,7 @@ def page_about():
     s+=f'''<section class="sec story"><div class="wrap st-g"><div class="st-tx rv"><p class="eyebrow">The company</p><h2>“Great family owned <em>local business.”</em></h2>
 <p>That’s how customer Lieth Quffa put it — and the company’s own reply says the same: “our family-owned business.” Air Element AC and Heating LLC works out of a Mandarin office on Hood Road and handles residential and commercial heating and cooling: repairs, replacements, duct systems, mini-splits and rooftop equipment.</p>
 <p>In their own words: <i>“Don’t wait until the sun starts blazing or the weather drops to freezing temperatures to call for HVAC assistance. Let us keep your home or business at the temperatures you find most comfortable.”</i></p>
-<p>Reviewers keep coming back to the same things — technicians like Robert and Anton who show up fast, explain the options, don’t upsell and leave the place clean.</p></div>
+<p>Reviewers keep coming back to the same things: technicians who show up fast, explain the options, don’t upsell and leave the place clean.</p></div>
 <div class="st-ph rv">{louver(img('commercial-ductwork','Open-truss commercial space with new ductwork overhead'))}{img('trane-air-handler','Trane air handler with new duct-board plenums in a garage','st-ph2')}</div></div></section>'''
     s+=f'<section class="sec creds"><div class="wrap"><div class="cred-g">{cc}</div></div></section>'
     cz=''.join(f'<li class="cty rv" style="--i:{i}"><span>{c}</span><small>County</small></li>' for i,c in enumerate(D['counties']))
